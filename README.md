@@ -31,10 +31,12 @@ sudo apt-get install grafana
 ### 1.2 Plugin
 
 Для установки плагина достаточно просто скопировать папку ```modified-json``` в папку с плагинами. Я просто сделал текущую папку папкой с плагинами.
-Для этого я добавил в файл ```/etc/grafana/grafana.ini``` строчку (моя папка называлась grafan-linux):
+Для этого я добавил в файл ```/etc/grafana/grafana.ini``` строчку (моя папка называлась grafana-linux):
 ```
 plugins = '/mnt/c/grafana-linux/'
 ```
+
+Про располажение файл и сам файл можно почитать [здесь]( https://grafana.com/docs/grafana/latest/administration/configuration/#plugins ).
 
 ### 1.3 Python
 

@@ -12,9 +12,7 @@ from flask_cors import CORS, cross_origin
 import pandas as pd
 import numpy as np
 import getopt
-import glob
 import os
-import csv
 import sys
 
 from datetime import datetime
