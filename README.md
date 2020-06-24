@@ -44,7 +44,7 @@ plugins = '/mnt/c/grafana-linux/'
 
 Сервер работает на python3. Необходимые пакеты можно установить командой ниже:
 ```
-pip3 install collections flask flask-cors numpy pandas sklearn csv 
+pip3 install flask flask-cors numpy pandas sklearn
 ```
 
 ## 2 Запуск
