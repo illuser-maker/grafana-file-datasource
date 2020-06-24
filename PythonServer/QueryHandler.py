@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from os import listdir
+import os
 
 from FileHandler import CSVHandler, parse_types
 import pandas as pd
@@ -112,11 +112,11 @@ class QueryHandler(QueryHandlerInterface):
     def get_sources(self, d_type: str, folder: str) -> list:
         """Возвращает список ресурсов, а заодно заполняет словарь file_class_dict"""
         results = []
-        for filename in listdir(self.path + folder):
+        for filename in os.listdir(os.path.join(self.path, folder)):
             for filetype in self.filetypes:
                 if filetype in filename:
                     results.append(filename)
-                    self.file_class_dict[filename] = self.type_class_dict[filetype](filename, self.path + folder)
+                    self.file_class_dict[filename] = self.type_class_dict[filetype](filename, os.path.join(self.path, folder))
                     break
         return results
 

@@ -31,7 +31,7 @@ QH = None
 @cross_origin()
 def hello_world(folder):
     """Функция проверяет, есть ли такая папка, и возвращает ОК в случае существования"""
-    if os.path.isdir(PATH + str(folder)):
+    if os.path.isdir(os.path.join(PATH, str(folder))):
         return 'CSV Python Grafana datasource for '+str(folder)
     else:
         return abort(404)
@@ -41,12 +41,14 @@ def hello_world(folder):
 @cross_origin(max_age=600)
 def query_routes(folder):
     """Функция возвращает список файлов формата csv в папке. Используется для поля Source"""
+    if request.get_json() is None:
+        return jsonify([])
     d_type = request.get_json().get('type', 'timeseries')
     return jsonify(QH.get_sources(d_type=d_type, folder=str(folder)))
 
 # ----------------------------------------------------------------------------------
 @APP.route('/<folder>/search', methods=METHODS)
-@cross_origin()
+@cross_origin(max_age=600)
 def find_metrics(folder):
     """Функция возвращает список метрик, которые надо запросить. Используется для поля Metric.
     В текущем варианте просто возвращает список столбцов."""
@@ -59,7 +61,7 @@ def find_metrics(folder):
     target = req.get('target', '')
     return jsonify(QH.get_metrics(d_type, source, target))
 
-
+'''
 def annotations_to_response(target, df):
     response = []
 
@@ -105,7 +107,7 @@ def _series_to_annotations(df, target):
 
     return {'target': '%s' % (df.name),
             'datapoints': zip(values, timestamps)}
-
+'''
 # ----------------------------------------------------------------------------------
 @APP.route('/<folder>/query', methods=METHODS)
 @cross_origin(max_age=600)
@@ -114,18 +116,25 @@ def query_metrics(folder):
     req = request.get_json()
     QH.get_sources('table', folder)
 
-    #ts_range = {'$gt': pd.Timestamp(req['range']['from']).to_pydatetime(),
-    #            '$lte': pd.Timestamp(req['range']['to']).to_pydatetime()}
-    #ts = pd.date_range(ts_range['$gt'], ts_range['$lte'], freq='H')
-    #if 'intervalMs' in req:
-    #    freq = str(req.get('intervalMs')) + 'ms'
-    #else:
-    #    freq = None
-
     results = QH.get_data(req)
     return jsonify(results)
 
 #----------------------------------------------------------------------------------
+@APP.route('/<folder>/tag-keys', methods=METHODS)
+@cross_origin(max_age=600)
+def tag_keys(folder):
+    QH.get_sources('table', folder)
+    results = QH.get_tag_keys()
+    return jsonify(results)
+
+
+@APP.route('/<folder>/tag-values', methods=METHODS)
+@cross_origin(max_age=600)
+def tag_values(folder):
+    pass
+
+#----------------------------------------------------------------------------------
+'''
 @APP.route('/<folder>/annotations', methods=METHODS)
 @cross_origin(max_age=600)
 def query_annotations(folder):
@@ -146,7 +155,7 @@ def query_annotations(folder):
     results.extend(annotations_to_response(query, annotation_readers[finder](target, ts_range)))
 
     return jsonify(results)
-
+'''
 # ----------------------------------------------------------------------------------
 def main(argv):
     global PATH
@@ -170,8 +179,7 @@ def main(argv):
             PATH = arg
         elif opt in ("-v"):
             debug = True
-    if PATH[-1] != '/':
-        PATH += '/'
+    PATH = os.path.normpath(PATH)
     global QH
     QH = QueryHandler(PATH, filetypes=['csv'])
     APP.run(host=addr, port=port, debug=debug)
