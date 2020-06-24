@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="14" failures="0" time="11.398">
+  <testsuite name="GenericDatasource" errors="0" failures="0" skipped="0" timestamp="2020-06-21T13:28:31" time="2.656" tests="14">
+    <testcase classname="GenericDatasource should return an empty array when no targets are set" name="GenericDatasource should return an empty array when no targets are set" time="0.003">
+    </testcase>
+    <testcase classname="GenericDatasource should return the server results when a target is set" name="GenericDatasource should return the server results when a target is set" time="0.001">
+    </testcase>
+    <testcase classname="GenericDatasource should return the metric target results when a target is set" name="GenericDatasource should return the metric target results when a target is set" time="0.001">
+    </testcase>
+    <testcase classname="GenericDatasource should return the metric results when the target is an empty string" name="GenericDatasource should return the metric results when the target is an empty string" time="0.001">
+    </testcase>
+    <testcase classname="GenericDatasource should return the metric results when the args are an empty object" name="GenericDatasource should return the metric results when the args are an empty object" time="0.001">
+    </testcase>
+    <testcase classname="GenericDatasource should return the metric target results when the args are a string" name="GenericDatasource should return the metric target results when the args are a string" time="0.001">
+    </testcase>
+    <testcase classname="GenericDatasource should return data as text and as value" name="GenericDatasource should return data as text and as value" time="0.001">
+    </testcase>
+    <testcase classname="GenericDatasource should return text as text and value as value" name="GenericDatasource should return text as text and value as value" time="0.001">
+    </testcase>
+    <testcase classname="GenericDatasource should return data as text and index as value" name="GenericDatasource should return data as text and index as value" time="0.001">
+    </testcase>
+    <testcase classname="GenericDatasource should support tag keys" name="GenericDatasource should support tag keys" time="0.001">
+    </testcase>
+    <testcase classname="GenericDatasource should support tag values" name="GenericDatasource should support tag values" time="0.001">
+    </testcase>
+    <testcase classname="GenericDatasource.prototype.buildQueryTargets simple key-value" name="GenericDatasource.prototype.buildQueryTargets simple key-value" time="0.002">
+    </testcase>
+    <testcase classname="GenericDatasource.prototype.buildQueryTargets random json" name="GenericDatasource.prototype.buildQueryTargets random json" time="0">
+    </testcase>
+    <testcase classname="GenericDatasource.prototype.buildQueryTargets complex string interpolation" name="GenericDatasource.prototype.buildQueryTargets complex string interpolation" time="0.001">
+    </testcase>
+  </testsuite>
+</testsuites>
