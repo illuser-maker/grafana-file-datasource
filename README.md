@@ -38,7 +38,7 @@ plugins = '/mnt/c/grafana-linux/'
 
 Про располажение файл и сам файл можно почитать [здесь]( https://grafana.com/docs/grafana/latest/administration/configuration/#plugins ).
 
-Про оригинальный JSON плагин можно почитать [здесь] ( https://grafana.com/grafana/plugins/simpod-json-datasource ).
+Про оригинальный JSON плагин можно почитать [здесь]( https://grafana.com/grafana/plugins/simpod-json-datasource ).
 
 ### 1.3 Python
 
@@ -66,7 +66,7 @@ sudo service grafana-server start
 
 ## 3 Grafana Configuration
 
-Для начала создается Datasouce через плагин JSON. В качестве ссылки используется адрес нашего бэкенда + папки в folders: ```http://localhost:3003/sample/````. 
+Для начала создается Datasouce через плагин JSON. В качестве ссылки используется адрес нашего бэкенда + папки в folders: ```http://localhost:3003/sample/```. 
 Имя назначается любым, я назначил Sample. Если в этой папке есть файлы, то при нажатии Save&Test будет все ОК.
 
 Далее можно создать свою панель на вкладке дашбордов (большая кнопка +), чтобы потестить графану, а можно загрузить мой дашборд через импорт там же.
