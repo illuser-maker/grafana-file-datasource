@@ -38,6 +38,8 @@ plugins = '/mnt/c/grafana-linux/'
 
 Про располажение файл и сам файл можно почитать [здесь]( https://grafana.com/docs/grafana/latest/administration/configuration/#plugins ).
 
+Про оригинальный JSON плагин можно почитать [здесь] ( https://grafana.com/grafana/plugins/simpod-json-datasource ).
+
 ### 1.3 Python
 
 Сервер работает на python3. Необходимые пакеты можно установить командой ниже:
