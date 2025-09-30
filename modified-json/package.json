@@ -24,11 +24,11 @@
     "@grafana/data": "^7.0.0",
     "@grafana/toolkit": "^7.0.0",
     "@grafana/ui": "^7.0.0",
-    "@types/lodash": "^4.14.152",
+    "@types/lodash": "^4.17.20",
     "grafana-sdk-mocks": "github:grafana/grafana-sdk-mocks"
   },
   "dependencies": {
-    "lodash": "^4.17.15"
+    "lodash": "^4.17.21"
   },
   "homepage": "https://github.com/simPod/grafana-json-datasource#readme",
   "jest": {
